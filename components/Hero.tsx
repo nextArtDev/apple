@@ -3,6 +3,7 @@ import gsap from 'gsap'
 import { useGSAP } from '@gsap/react'
 import { useCallback, useEffect, useState } from 'react'
 import { useWindowSize } from '@/hooks/useWindowSize'
+import Link from 'next/link'
 
 const HeroVideos = '/assets/videos/hero.mp4'
 const SmallHeroVideos = '/assets/videos/smallHero.mp4'
@@ -59,9 +60,9 @@ const Hero = () => {
         id="cta"
         className="flex flex-col items-center opacity-0 translate-y-20"
       >
-        <a href="#highlights" className="btn">
+        <Link href="#highlights" className="btn">
           Buy
-        </a>
+        </Link>
         <p className="font-normal text-xl">From $199/month or $999</p>
       </div>
     </section>
