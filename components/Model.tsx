@@ -94,9 +94,8 @@ const Model = () => {
               }}
               // eventSource={document.getElementById('root')}
             >
-              <Suspense fallback={null}>
-                <View.Port />
-              </Suspense>
+              {/* from drei to view multiple models in same canvas */}
+              <View.Port />
             </Canvas>
           </div>
 
