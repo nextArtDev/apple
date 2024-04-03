@@ -1,29 +1,53 @@
 'use client'
 import * as THREE from 'three'
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect, useLayoutEffect, useRef, useState } from 'react'
 import { useGLTF, useTexture } from '@react-three/drei'
 import { useFrame } from '@react-three/fiber'
+import type { ModelType } from './Model'
+import { LoadModel } from './LoadModel'
+
+interface propType {
+  item: ModelType
+  size: string
+  scale: number
+}
 
 function Model(props: any) {
   const { nodes, materials } = useGLTF('/models/scene.glb')
 
-  const texture = useTexture(props.item.img)
+  // const texture = useTexture(props.item.img)
 
-  useEffect(() => {
-    Object.entries(materials).map((material) => {
-      // these are the material names that can't be changed color
-      if (
-        material[0] !== 'zFdeDaGNRwzccye' &&
-        material[0] !== 'ujsvqBWRMnqdwPx' &&
-        material[0] !== 'hUlRcbieVuIiOXG' &&
-        material[0] !== 'jlzuBkUzuJqgiAK' &&
-        material[0] !== 'xNrofRCqOXXHVZt'
-      ) {
-        material[1].color = new THREE.Color(props.item.color[0])
-      }
-      material[1].needsUpdate = true
-    })
-  }, [materials, props.item])
+  // const [modelData, setModelData] = useState<any>(null)
+
+  // useEffect(() => {
+  //   const { nodes, materials, texture } = LoadModel({
+  //     img: props.item.img,
+  //     model: '/models/scene.glb',
+  //   })
+  //   setModelData({ nodes, materials, texture })
+  // }, [props])
+
+  // if (!modelData) {
+  //   return null
+  // }
+
+  // const { nodes, materials, texture } = modelData
+
+  // useLayoutEffect(() => {
+  //   Object.entries(materials).map(([key, material]) => {
+  //     if (
+  //       key !== 'zFdeDaGNRwzccye' &&
+  //       key !== 'ujsvqBWRMnqdwPx' &&
+  //       key !== 'hUlRcbieVuIiOXG' &&
+  //       key !== 'jlzuBkUzuJqgiAK' &&
+  //       key !== 'xNrofRCqOXXHVZt'
+  //     ) {
+  //       const customMaterial = material as THREE.MeshStandardMaterial // Type assertion
+  //       customMaterial.color = new THREE.Color(props.item.color[0])
+  //     }
+  //     material.needsUpdate = true
+  //   })
+  // }, [materials, props.item])
 
   // useFrame(() => {
   //   Object.entries(materials).map((material) => {
@@ -154,7 +178,8 @@ function Model(props: any) {
         material={materials.pIJKfZsazmcpEiU}
         scale={0.01}
       >
-        <meshStandardMaterial roughness={1} map={texture} />
+        {/* <meshStandardMaterial roughness={1} map={texture as THREE.Texture} /> */}
+        <meshStandardMaterial roughness={1} />
       </mesh>
       <mesh
         castShadow

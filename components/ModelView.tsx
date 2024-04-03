@@ -1,3 +1,4 @@
+'use client'
 import { Html, OrbitControls, PerspectiveCamera, View } from '@react-three/drei'
 
 import * as THREE from 'three'

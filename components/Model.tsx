@@ -10,15 +10,20 @@ import { Canvas } from '@react-three/fiber'
 import { View } from '@react-three/drei'
 import { models, sizes } from '../constants'
 import { animateWithGsapTimeline } from '@/lib/utils/animations'
+import { StaticImageData } from 'next/image'
+export interface ModelType {
+  title: string
+  color: string[]
+  img: StaticImageData | string | string[] | Record<string, string>
+}
 
 const Model = () => {
   const [size, setSize] = useState('small')
-  const [model, setModel] = useState({
+  const [model, setModel] = useState<ModelType>({
     title: 'iPhone 15 Pro in Natural Titanium',
     color: ['#8F8A81', '#FFE7B9', '#6F6C64'],
     img: yellowImg,
   })
-
   // camera control for the model view
   const cameraControlSmall = useRef()
   const cameraControlLarge = useRef()
