@@ -24,7 +24,9 @@ const ModelView = ({
     <View
       index={index}
       id={gsapType}
-      className={`w-full h-full absolute ${index === 2 ? 'right-[-100%]' : ''}`}
+      className={`z-10 w-full h-full absolute ${
+        index === 2 ? 'right-[-100%]' : ''
+      }`}
     >
       {/* Ambient Light */}
       <ambientLight intensity={0.3} />

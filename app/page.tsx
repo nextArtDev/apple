@@ -1,3 +1,4 @@
+import Features from '@/components/Features'
 import Hero from '@/components/Hero'
 import Highlights from '@/components/Highlights'
 import Model from '@/components/Model'
@@ -8,6 +9,7 @@ export default function Home() {
       <Hero />
       <Highlights />
       <Model />
+      <Features />
     </main>
   )
 }

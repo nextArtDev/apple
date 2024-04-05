@@ -3,7 +3,17 @@ import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/all'
 gsap.registerPlugin(ScrollTrigger)
 
-export const animateWithGsap = (target, animationProps, scrollProps) => {
+interface animateWithGsapProps {
+  target: string
+  animationProps: any
+  scrollProps?: any
+}
+
+export const animateWithGsap = (
+  target: string,
+  animationProps: gsap.TweenVars,
+  scrollProps?: gsap.DOMTarget | ScrollTrigger.Vars | undefined
+) => {
   gsap.to(target, {
     ...animationProps,
     scrollTrigger: {
