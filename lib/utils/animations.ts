@@ -12,14 +12,14 @@ interface animateWithGsapProps {
 export const animateWithGsap = (
   target: string,
   animationProps: gsap.TweenVars,
-  scrollProps?: gsap.DOMTarget | ScrollTrigger.Vars | undefined
+  scrollProps?: gsap.DOMTarget | ScrollTrigger.Vars
 ) => {
   gsap.to(target, {
     ...animationProps,
     scrollTrigger: {
       trigger: target,
-      toggleActions: 'restart reverse restart reverse',
-      start: 'top 85%',
+      toggleActions: 'restart reverse restart reverse', //onEnter onLeave onEnterBack onLeaveBack
+      start: 'top 85%', // top of the trigger is 85% of the viewport
       ...scrollProps,
     },
   })
