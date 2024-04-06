@@ -12,7 +12,7 @@ export const Hero = () => {
     target: videoContainerRef,
     offset: ['start start', 'end end'],
   })
-
+  // at 0% -> opacity:1, 70% -> opacity: 1, 100% -> opacity: 0
   const opacity = useTransform(scrollYProgress, [0, 0.7, 1], [1, 1, 0])
 
   return (
@@ -37,7 +37,7 @@ export const Hero = () => {
           whileInView="visible"
           exit="hidden"
           animate="hidden"
-          viewport={{ amount: 0.98 }}
+          viewport={{ amount: 0.7 }}
         >
           <h1 className="mb-10 text-4xl font-bold md:text-5xl">
             All Apple Originals. <br />
