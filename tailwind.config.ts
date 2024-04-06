@@ -9,6 +9,10 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
+        background: '#000',
+        backgroundContrast: '#111',
+        textBlack: '#1d1d1f',
+        white: '#fff',
         blue: '#2997FF',
         gray: {
           DEFAULT: '#86868b',
@@ -17,6 +21,15 @@ const config: Config = {
           300: '#42424570',
         },
         zinc: '#101010',
+      },
+      keyframes: {
+        'carousel-move': {
+          '0%': { transform: 'translateX(0)' },
+          '100%': { transform: 'translateX(-100%)' },
+        },
+      },
+      animation: {
+        'carousel-move': 'carousel-move var(--duration,80s) infinite',
       },
     },
   },
