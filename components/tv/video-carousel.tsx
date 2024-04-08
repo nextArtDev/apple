@@ -11,6 +11,7 @@ import {
 import { useMemo, useRef, useState } from 'react'
 import { useWindowSize } from 'react-use'
 import { Button } from './button'
+import Image from 'next/image'
 
 export const VideoCarousel = () => {
   const { width, height } = useWindowSize()
@@ -66,9 +67,10 @@ export const VideoCarousel = () => {
           <div className="relative left-1/2 mb-5 flex -translate-x-1/2 gap-5">
             <motion.div
               style={{ opacity: postersOpacity, x: posterTranslateXLeft }}
-              className="aspect-[9/16] w-[300px] shrink-0 overflow-clip rounded-2xl md:aspect-video md:w-[60vw]"
+              className="relative aspect-[9/16] w-[300px] shrink-0 overflow-clip rounded-2xl md:aspect-video md:w-[60vw]"
             >
-              <img
+              <Image
+                fill
                 className="h-full w-full object-cover"
                 src={movies[0].poster}
                 alt={movies[0].name}
@@ -78,7 +80,8 @@ export const VideoCarousel = () => {
               style={{ scale }}
               className="relative aspect-[9/16] w-[300px] shrink-0 overflow-clip rounded-2xl md:aspect-video md:w-[60vw]"
             >
-              <img
+              <Image
+                fill
                 className="h-full w-full object-cover"
                 src={movies[1].poster}
                 alt={movies[1].name}
@@ -96,9 +99,10 @@ export const VideoCarousel = () => {
             </motion.div>
             <motion.div
               style={{ opacity: postersOpacity, x: posterTranslateXRight }}
-              className="aspect-[9/16] w-[300px] shrink-0 overflow-clip rounded-2xl md:aspect-video md:w-[60vw]"
+              className="relative aspect-[9/16] w-[300px] shrink-0 overflow-clip rounded-2xl md:aspect-video md:w-[60vw]"
             >
-              <img
+              <Image
+                fill
                 className="h-full w-full object-cover"
                 src={movies[2].poster}
                 alt={movies[2].name}
@@ -131,11 +135,12 @@ const SmallVideoCarousel = ({ movies }: { movies: Movie[] }) => {
       <div className="animate-carousel-move relative left-[var(--carousel-offset,0px)] flex gap-3">
         {movies.map((movie, index) => (
           <div
-            className="aspect-video w-[40vw] shrink-0 md:w-[23vw]"
+            className="relative aspect-video w-[40vw] shrink-0 md:w-[23vw]"
             key={`${movie.name}-${index}`}
           >
-            <img
-              className="h-full w-full rounded-xl object-cover"
+            <Image
+              fill
+              className="rounded-xl object-cover"
               src={movie.poster}
               alt={movie.name}
             />
